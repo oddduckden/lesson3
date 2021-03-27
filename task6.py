@@ -11,8 +11,8 @@ def int_func(line):
     return line.title()
 
 
-en_str = '#'
+tmp = '#'
 print('Only a-z are allowed.')
-while [s for s in ent_str.replace(' ', '') if ord(s) < 97 or ord(s) > 122]:
-    en_str = input("Enter string: ")
-print(int_func(en_str))
+while [s for s in tmp.replace(' ', '') if ord(s) < 97 or ord(s) > 122]:
+    tmp = input("Enter string: ")
+print(int_func(tmp))
