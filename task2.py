@@ -15,7 +15,6 @@ def person_data(name, surname, birth_year, location, email, phone):
     :param phone: телефон
     :return: пропущенный параметр
     """
-
     print('{:<20} {:<20} {:<20} {:<20} {:<20} {:<20}'.format('Имя', 'Фамилия', 'Год рождения', 'Город проживания',
                                                              'E-mail', 'Телефон'))
     print(
@@ -28,22 +27,9 @@ def format_check(param):
     :param param:list (наименование параметра: str, значение параметра: str)
     :return: значение параметра: str
     """
-
-    def reinput(old_list, message):
-        """
-        Повторный ввод параметра
-        :param old_list: list (наименование параметра: str, значение параметра: str)
-        :param message: str (сообщение об ошибке)
-        :return:
-        """
-        print(message)
-        old_list.pop(-1)
-        old_list.append(input(f'Введите {old_list[0]}: '))
-        return old_list
-
     if not param[1]:
         param = reinput(param, 'Поле не должно быть пустым.')
-    elif param[0] in ('имя', 'фимилия', 'город проживания') and [s for s in param[1] if s in '0123456789']:
+    elif param[0] in ('имя', 'фамилия', 'город проживания') and [s for s in param[1] if s in '0123456789']:
         param = reinput(param, 'Поле не должно содержать цифры.')
     elif param[0] == 'год рождения':
         if len(param[1]) != 4 or not param[1][:2] in ('19', '20') or not param[1].isdigit():
@@ -53,6 +39,20 @@ def format_check(param):
     elif param[0] == 'телефон' and not re.match(r"(?:[0-9+()-])", param[1]):
         param = reinput(param, 'Неверный формат номера телефона.')
     return param[1]
+
+
+def reinput(old_list, message):
+    """
+    Повторный ввод параметра
+    :param old_list: list (наименование параметра: str, значение параметра: str)
+    :param message: str (сообщение об ошибке)
+    :return:
+    """
+    print(message)
+    old_list.pop(-1)
+    old_list.append(input(f'Введите {old_list[0]}: '))
+    format_check(old_list)
+    return old_list
 
 
 parametrs = ('имя', 'фамилия', 'год рождения', 'город проживания', 'email', 'телефон')
