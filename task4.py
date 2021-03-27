@@ -3,18 +3,15 @@
 # необходимо обойтись без встроенной функции возведения числа в степень. Подсказка: попробуйте решить задачу двумя
 # способами. Первый — возведение в степень с помощью оператора **. Второй — более сложная реализация без оператора
 # **, предусматривающая использование цикла.
-def my_func_expon(x, y):
-    return x ** y
-
-
-def my_func_cycle(x, y):
+def my_func(x, y):
+    expon = x ** y
     res = 1
     for i in range(abs(y)):
         res *= x
-    return 1 / res
+    return expon, 1 / res
 
 
 x = int(input('x = '))
 y = int(input('y = '))
-print('%-25s%-.18f' % ('exponentiation result: ', my_func_expon(x, y)))
-print('%-25s%-.18f' % ('cycle result: ', my_func_cycle(x, y)))
+print('%-25s%-.18f' % ('exponentiation result: ', my_func(x, y)[0]))
+print('%-25s%-.18f' % ('cycle result: ', my_func(x, y)[1]))
