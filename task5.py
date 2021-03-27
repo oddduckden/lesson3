@@ -3,3 +3,20 @@
 # введенных чисел будет добавляться к уже подсчитанной сумме. Но если вместо числа вводится специальный символ,
 # выполнение программы завершается. Если специальный символ введен после нескольких чисел, то вначале нужно добавить
 # сумму этих чисел к полученной ранее сумме и после этого завершить программу.
+def foo(num_list):
+    try:
+        num_list.remove('#')
+    except ValueError:
+        return sum([int(item) for item in num_list]), False
+    else:
+        return sum([int(item) for item in num_list]), True
+
+
+total = []
+print('Вводите числа, разделенные пробелами. Для окончания введите #\n')
+while True:
+    tmp = foo(input().split())
+    total.append(tmp[0])
+    print(sum(total))
+    if tmp[1]:
+        break
