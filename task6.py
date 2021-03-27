@@ -6,13 +6,13 @@
 #
 # ????? возможно не понял смысл задания, но основная функциональность реализуется и для слова, и для строки
 # print(input('Enter string: ').title())
-# нет только проверки ввода на нижний регистр и латиницу
+# нет только проверки ввода на нижний регистр и латиницу.
 def int_func(line):
     return line.title()
 
 
-tmp = '#'
+en_str = '#'
 print('Only a-z are allowed.')
-while [s for s in tmp.replace(' ', '') if ord(s) < 97 or ord(s) > 122]:
-    tmp = input("Enter string: ")
-print(int_func(tmp))
+while [s for s in ent_str.replace(' ', '') if ord(s) < 97 or ord(s) > 122]:
+    en_str = input("Enter string: ")
+print(int_func(en_str))
